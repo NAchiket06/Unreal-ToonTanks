@@ -4,6 +4,7 @@
 #include "GameFramework/Pawn.h"
 #include "BasePawn.generated.h"
 
+#define UP UPROPERTY
 UCLASS()
 class TOONTANKS_API ABasePawn : public APawn
 {
@@ -13,25 +14,28 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Movement")
+	float Speed = 50.f;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Movement")
+	float TurnSpeed = 50.f;
 
+protected:
+
+	void RotateTurret(FVector LookAtTarget);
 private: 
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category="Components",meta=(AllowPrivateAccess = "true"))
 	class UCapsuleComponent* CapsuleComponent;
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category="Components",meta=(AllowPrivateAccess = "true"))
 	UStaticMeshComponent* BaseMesh;
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category="Components",meta=(AllowPrivateAccess = "true"))
 	UStaticMeshComponent* TurretMesh;
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category="Components",meta=(AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
 	
 
 	
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	
 	
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
