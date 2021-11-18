@@ -24,4 +24,12 @@ private:
 	UPROPERTY(EditAnywhere,Category="Attacking")
 	float AttackRange = 50.f;
 
+	FTimerHandle FireRateTimerHandle;
+	
+	UPROPERTY(EditAnywhere,Category="Attacking")
+	float FireRate = 2.f;
+
+	void CheckFireCondition();
+
+	bool InFireRange() const;
 };

@@ -22,6 +22,8 @@ public:
 protected:
 
 	void RotateTurret(FVector LookAtTarget);
+	void Fire();
+	
 private: 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category="Components",meta=(AllowPrivateAccess = "true"))
 	class UCapsuleComponent* CapsuleComponent;
@@ -34,10 +36,8 @@ private:
 	
 
 	
-public:	
+public:
 	
-	
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 };
