@@ -18,7 +18,14 @@ class TOONTANKS_API ATank : public ABasePawn
 public: 
 	ATank();
 
+	virtual void Tick(float DeltaTime) override;
+
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+
+	void HandleDestruction();
+
+	APlayerController* GetTankPlayerController() const{	  return TankPlayerController;   }
+	
 
 private:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category="Components",meta=(AllowPrivateAccess = "true"))
@@ -31,14 +38,12 @@ private:
 	void Move(float value);
 	void Turn(float value);
 
-	APlayerController* PlayerControllerRef;
+	APlayerController* TankPlayerController;
 
 	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:
-	virtual void Tick(float DeltaTime) override;
-    
+
 };

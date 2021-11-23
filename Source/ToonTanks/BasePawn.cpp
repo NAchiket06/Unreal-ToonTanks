@@ -43,4 +43,12 @@ void ABasePawn::Fire()
 	
 }
 
+void ABasePawn::HandleDestruction()
+{
+	// Add visual effects for destruciton
+
+	
+}
+
+
 

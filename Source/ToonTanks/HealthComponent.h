@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "FunctionalTestingManager.h"
+#include "ToonTanksGameMode.h"
 #include "Components/ActorComponent.h"
 #include "HealthComponent.generated.h"
 
@@ -29,6 +30,8 @@ private:
 	
 	UFUNCTION()
 	void DamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType,class AController* Instigator, AActor* DamageCauser);
+
+	class AToonTanksGameMode* ToonTanksGameMode;
 	
 public:	
 	// Called every frame

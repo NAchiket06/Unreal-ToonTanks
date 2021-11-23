@@ -14,6 +14,8 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
+	void HandleDestruction();
+
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Movement")
 	float Speed = 50.f;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Movement")
