@@ -41,7 +41,10 @@ void UHealthComponent::DamageTaken(AActor* DamagedActor, float Damage, const UDa
 	}
 	
 	Health -= Damage;
-	UE_LOG(LogTemp,Warning, TEXT("Health: %f."), Health);
+	if(Health<=0.f)
+	{
+		GetOwner()->Destroy();
+	}
 }
 
 
