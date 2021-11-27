@@ -3,6 +3,7 @@
 #include "DrawDebugHelpers.h"
 #include "Projectile.h"
 #include "Components/CapsuleComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -46,8 +47,14 @@ void ABasePawn::Fire()
 void ABasePawn::HandleDestruction()
 {
 	// Add visual effects for destruciton
-
-	
+	if(DeathParticles)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(this,DeathParticles,GetActorLocation(),GetActorRotation());
+	}
+	if(DeathSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this,DeathSound,GetActorLocation());
+	}
 }
 
 

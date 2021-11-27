@@ -25,6 +25,9 @@ protected:
 
 	void RotateTurret(FVector LookAtTarget);
 	void Fire();
+
+	UPROPERTY(EditAnywhere,Category="Combat")
+	class UParticleSystem* DeathParticles;
 	
 private: 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Category="Components",meta=(AllowPrivateAccess = "true"))
@@ -38,8 +41,9 @@ private:
 
 	UPROPERTY(EditDefaultsOnly,Category="Combat")
 	TSubclassOf<class AProjectile> ProjectileClass;
-	
 
+	UPROPERTY(EditAnywhere,Category="Combat")
+	class USoundBase* DeathSound;
 	
 public:
 	
