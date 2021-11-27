@@ -11,7 +11,7 @@ void ATower::Tick(float DeltaTime)
 	{
 
 		// Check if tank in range
-		if(InFireRange())
+		if(InFireRange() && Tank->bAlive)
 		{
 			// if in range,
 			// 
