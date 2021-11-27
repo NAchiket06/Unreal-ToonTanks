@@ -36,6 +36,8 @@ void AToonTanksGameMode::HandleGameStart()
 	Tank = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this,0));
 	ToonTanksPlayerController = Cast<AToonTanksPlayerContoller>(UGameplayStatics::GetPlayerController(this,0));
 
+	StartGame();
+	
 	if(ToonTanksPlayerController)
 	{
 		ToonTanksPlayerController->SetPlayerEnabledState(false);
@@ -45,8 +47,6 @@ void AToonTanksGameMode::HandleGameStart()
 		GetWorldTimerManager().SetTimer(PlayerEnableTimerHandle,PlayerEnableTimerDelegate,StartDelay,false);
 	}
 
-	
-	
 }
 
 
